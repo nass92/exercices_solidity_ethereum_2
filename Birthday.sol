@@ -53,9 +53,8 @@ contract Birthday {
 
     // function getPresent
     function getPresent() public notTheDay onlyWinner {
-        uint256 ewe = _presentValue;
         _presentValue = 0;
-        payable(msg.sender).sendValue(ewe);
+        payable(msg.sender).sendValue(address(this).balance);
     }
 
     // function date => 1 journée = 86400 seconde, 1 mois = 2628000 secondes, 1 année = 31 557 600 secondes
